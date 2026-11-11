@@ -32,7 +32,20 @@ window.QUESTIONS = window.QUESTIONS
   .filter(question => !accountingQuestionIds.has(question.id))
   .sort((a, b) => a.exam.localeCompare(b.exam) || a.q - b.q);
 const economyQuestions = new Map(window.QUESTIONS.map(question => [question.id, question]));
+const symbolFont = {
+  "\uf0de": "⇒", "\uf03e": "＞", "\uf044": "Δ", "\uf03c": "＜",
+  "\uf0ae": "→", "\uf0ad": "↑", "\uf0af": "↓", "\uf070": "π",
+  "\uf0b3": "≥", "\uf0a3": "≤", "\uf0d7": "×", "\uf0b9": "≠",
+  "\uf0a5": "∞", "\uf0b0": "°",
+};
+function restoreEconomicSymbols(value) {
+  return value.replace(/[\uf000-\uf8ff]/g, char => symbolFont[char] ?? char);
+}
+
 for (const question of window.QUESTIONS) {
+  question.stem = restoreEconomicSymbols(question.stem);
+  question.options = question.options.map(restoreEconomicSymbols);
+  if (question.official) question.official = restoreEconomicSymbols(question.official);
   if (!question.group && /^承上題|^承前題/.test(question.stem)) {
     const previous = economyQuestions.get(`${question.exam}-A-${question.q - 1}`);
     if (previous) {
