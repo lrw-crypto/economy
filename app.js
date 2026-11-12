@@ -1,6 +1,7 @@
 "use strict";
 const QS = window.QUESTIONS || [];
 QS.forEach(q => { if (q.group) { const g = window.CONTEXTS[q.group]; q.context = g.text; q.contextScan = g.scan; } q.paper = "A"; q.year = q.exam.split("-")[0]; q.num = q.exam.split("-")[1]; });
+QS.forEach(q => { if (q.scan && QuizVisuals.textOnly(q)) delete q.scan; });
 const BY = Object.fromEntries(QS.map(q => [q.id, q]));
 const UNITS_L = window.ECONOMY_UNITS;
 const UNITS = { indexOf(u) { return UNITS_L.indexOf(u); } };
