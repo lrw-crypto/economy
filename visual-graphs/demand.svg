@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 215" width="400" height="215">
+<style>.axis{fill:none;stroke:#3f5160;stroke-width:2}.curve{fill:none;stroke:#08776d;stroke-width:4}.guide{fill:none;stroke:#7c9199;stroke-width:2;stroke-dasharray:5 4}circle{fill:#08776d}text{font:16px system-ui,sans-serif;fill:#18343c}</style>
+<rect width="400" height="215" rx="8" fill="white"/>
+      <path class="axis" d="M52 24V177H365M47 32l5-8 5 8M357 172l8 5-8 5"/>
+      <path class="curve" d="M72 42L335 151"/>
+      <path class="guide" d="M52 80H164V177M52 127H277V177"/>
+      <circle cx="164" cy="80" r="6"/><circle cx="277" cy="127" r="6"/>
+      <text x="181" y="74">B 高價、量少</text><text x="226" y="115">A 低價、量多</text>
+      <text x="13" y="26">價格</text><text x="294" y="203">需求量</text></svg>
